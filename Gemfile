@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'haml-rails'
+gem 'erb2haml'
+
+
 gem 'rails',        '5.1.6'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
