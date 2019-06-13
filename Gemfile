@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'pry-byebug'
+gem 'bcrypt',         '3.1.12'
 
 gem 'rails',          '5.1.6'
 gem 'bootstrap-sass', '3.3.7'
