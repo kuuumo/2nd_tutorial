@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
     render action: :show2
     redirect_to root_url and return unless @user.activated?
   end
@@ -60,17 +61,9 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_path
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to root_path unless @user == current_user
     end
-  end
-
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to root_path unless @user == current_user
-  end
 
 end
